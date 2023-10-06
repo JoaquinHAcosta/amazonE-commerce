@@ -18,7 +18,7 @@ export const sampleProducts: Product[] = [
     slug: 'adidas-fit-shirt',
     category: 'Shirts',
     image: '../images/p2.jpg',
-    price: 120,
+    price: 100,
     countInStock: 10,
     brand: 'Nike',
     rating: 4.5,
