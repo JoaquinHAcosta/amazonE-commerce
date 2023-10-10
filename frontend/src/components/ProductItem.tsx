@@ -1,11 +1,12 @@
 import { Button, Card } from 'react-bootstrap'
 import { Product } from '../types/Product'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Rating from './Rating'
 import { useContext } from 'react'
 import { Store } from '../Store'
 import { CartItem } from '../types/Cart'
 import { convertProductToCartItem } from '../utils'
+import { toast } from 'react-toastify'
 
 function ProductItem({ product }: { product: Product }) {
   const { state, dispatch } = useContext(Store)
@@ -13,6 +14,8 @@ function ProductItem({ product }: { product: Product }) {
   const {
     cart: { cartItems },
   } = state
+
+  const navigate = useNavigate()
 
   const addToCartHandler = (item: CartItem) => {
     const existItem = cartItems.find((x) => x._id === product._id)
@@ -25,6 +28,8 @@ function ProductItem({ product }: { product: Product }) {
       type: 'CART_ADD_ITEM',
       payload: { ...item, quantity },
     })
+    toast.success('Product added to the cart')
+    // navigate('/cart')
   }
 
   return (
