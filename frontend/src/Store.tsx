@@ -72,6 +72,7 @@ const Store = React.createContext({
   dispatch: defaultDispatch,
 })
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 function StoreProvider(props: React.PropsWithChildren<{}>) {
   const [state, dispatch] = React.useReducer<React.Reducer<AppState, Action>>(
     reducer,

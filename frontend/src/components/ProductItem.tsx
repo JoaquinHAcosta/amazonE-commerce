@@ -15,7 +15,7 @@ function ProductItem({ product }: { product: Product }) {
     cart: { cartItems },
   } = state
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const addToCartHandler = (item: CartItem) => {
     const existItem = cartItems.find((x) => x._id === product._id)
